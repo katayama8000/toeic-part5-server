@@ -1,0 +1,7 @@
+# env
+.env
+.env.production
+.dev.vars
+
+# misc
+.DS_Store
