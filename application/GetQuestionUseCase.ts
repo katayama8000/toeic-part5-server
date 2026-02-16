@@ -1,6 +1,6 @@
-import type { IQuestionRepository } from '../domain/interface/IQuestionRepository.ts';
-import type { QuestionId } from '../domain/value-objects/questionId.ts';
-import type { Question } from '../domain/entities/question.ts';
+import type { IQuestionRepository } from "../domain/interface/IQuestionRepository.ts";
+import type { QuestionId } from "../domain/value-objects/questionId.ts";
+import type { Question } from "../domain/entities/question.ts";
 
 /**
  * A public-facing representation of a choice (without the answer).
@@ -19,7 +19,9 @@ export type GetQuestionResult = {
   readonly choices: readonly PublicChoice[];
 };
 
-export type GetQuestionUseCase = (id: QuestionId) => Promise<GetQuestionResult | null>;
+export type GetQuestionUseCase = (
+  id: QuestionId,
+) => Promise<GetQuestionResult | null>;
 
 const toGetQuestionResult = (question: Question): GetQuestionResult => {
   return {
@@ -29,7 +31,9 @@ const toGetQuestionResult = (question: Question): GetQuestionResult => {
   };
 };
 
-export const createGetQuestionUseCase = (repo: IQuestionRepository): GetQuestionUseCase => {
+export const createGetQuestionUseCase = (
+  repo: IQuestionRepository,
+): GetQuestionUseCase => {
   return async (id: QuestionId) => {
     const question = await repo.findById(id);
 

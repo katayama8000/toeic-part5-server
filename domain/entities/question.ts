@@ -1,5 +1,5 @@
-import type { Choice } from '../value-objects/choice.ts';
-import type { QuestionId } from '../value-objects/questionId.ts';
+import type { Choice } from "../value-objects/choice.ts";
+import type { QuestionId } from "../value-objects/questionId.ts";
 
 export type Question = {
   readonly id: QuestionId;
@@ -7,8 +7,13 @@ export type Question = {
   readonly choices: readonly Choice[];
 };
 
-export const checkAnswer = (question: Question, submittedLabel: string): boolean => {
-  const submittedChoice = question.choices.find(c => c.label === submittedLabel);
+export const checkAnswer = (
+  question: Question,
+  submittedLabel: string,
+): boolean => {
+  const submittedChoice = question.choices.find((c) =>
+    c.label === submittedLabel
+  );
   if (!submittedChoice) {
     return false;
   }

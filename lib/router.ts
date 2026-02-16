@@ -36,14 +36,14 @@ export const createRouter = (): SimpleRouter => {
      * Add a GET route.
      */
     get(pathname: string, handler: Handler): void {
-      add('GET', pathname, handler);
+      add("GET", pathname, handler);
     },
 
     /**
      * Add a POST route.
      */
     post(pathname: string, handler: Handler): void {
-      add('POST', pathname, handler);
+      add("POST", pathname, handler);
     },
 
     /**
@@ -62,9 +62,9 @@ export const createRouter = (): SimpleRouter => {
       }
 
       // Default 404 Not Found response.
-      return new Response(JSON.stringify({ error: 'Not Found' }), {
+      return new Response(JSON.stringify({ error: "Not Found" }), {
         status: 404,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       });
     },
   };

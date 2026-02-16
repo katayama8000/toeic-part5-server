@@ -1,7 +1,7 @@
 import type { IQuestionRepository } from '../../domain/interface/IQuestionRepository.ts';
 import { type Question } from '../../domain/entities/question.ts';
 import type { QuestionId } from '../../domain/value-objects/questionId.ts';
-import { QuestionMapper, type QuestionDTO } from './QuestionMapper.ts';
+import { type QuestionDTO, QuestionMapper } from './QuestionMapper.ts';
 
 const questionsData: QuestionDTO[] = [
   {
@@ -29,6 +29,7 @@ const questionsData: QuestionDTO[] = [
 
 export const createMockQuestionRepository = (): IQuestionRepository => {
   return {
+    // deno-lint-ignore require-await
     findById: async (id: QuestionId): Promise<Question | null> => {
       const questionData = questionsData.find((q) => q.id === id);
 

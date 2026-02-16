@@ -1,5 +1,5 @@
-import { createQuestionId } from '../../domain/value-objects/questionId.ts';
-import type { Question } from '../../domain/entities/question.ts';
+import { createQuestionId } from "../../domain/value-objects/questionId.ts";
+import type { Question } from "../../domain/entities/question.ts";
 
 // This file is responsible for converting between DTO and Entity
 
