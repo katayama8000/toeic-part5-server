@@ -1,7 +1,7 @@
 import { createGetQuestionUseCase } from "./application/GetQuestionUseCase.ts";
 import { createSubmitAnswerUseCase } from "./application/SubmitAnswerUseCase.ts";
 import { createQuestionId } from "./domain/value-objects/questionId.ts";
-import { createDenoKvQuestionRepository } from "./infrastructure/persistence/DenoKvQuestionRepository.ts";
+import { createMockQuestionRepository } from "./infrastructure/persistence/MockQuestionRepository.ts";
 import { createRouter, type Handler } from "./lib/router.ts";
 
 // A helper function to create JSON responses.
@@ -13,7 +13,7 @@ const jsonResponse = (data: unknown, status = 200) => {
 };
 
 // --- Composition Root ---
-const questionRepo = createDenoKvQuestionRepository();
+const questionRepo = createMockQuestionRepository();
 const getQuestionUseCase = createGetQuestionUseCase(questionRepo);
 const submitAnswerUseCase = createSubmitAnswerUseCase(questionRepo);
 
